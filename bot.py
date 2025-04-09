@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 
-TOKEN = "8167071326:AAE9Rt6ZihRAq8upyHW6XUjMeI0pzZgEkoA"
+TOKEN = "7981659691:AAFXSB8pWrOhb01AYrc_fXHT1R7AqDodITE"
 ADMIN_ID = 173565167
 
 question_user_map = {}
