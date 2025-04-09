@@ -29,12 +29,12 @@ async def handle_admin_reply(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if orig_msg_id in question_user_map:
             target_user_id = question_user_map[orig_msg_id]
             await context.bot.send_message(chat_id=target_user_id, text=update.message.text)
-            await update.message.reply_text("Ответ отправлен пользователю.")
+            await update.message.reply_text("Ответ отправлен")
             del question_user_map[orig_msg_id]
         else:
-            await update.message.reply_text("Не найден соответствующий вопрос пользователя.")
+            await update.message.reply_text("Не найден соответствующий вопрос пользователя")
     else:
-        await update.message.reply_text("Пожалуйста, ответьте реплаем на сообщение вопроса.")
+        await update.message.reply_text("Пожалуйста, ответьте на вопрос реплаем")
 
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
