@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 
-TOKEN = "7981659691:AAFXSB8pWrOhb01AYrc_fXHT1R7AqDodITE"
+TOKEN = "7676735069:AAFbPKbZvqndgnURIt8Pd_PoqhWPQoNQw3Y"
 ADMIN_ID = 173565167
 
 question_user_map = {}
@@ -12,7 +12,7 @@ async def handle_user_message(update: Update, context: ContextTypes.DEFAULT_TYPE
     message_text = update.message.text
 
     if message_text.startswith('/'):
-        await update.message.reply_text("Напишите анонимное сообщение")
+        await update.message.reply_text("Напишите анонимный вопрос ")
         return
 
 
@@ -20,7 +20,7 @@ async def handle_user_message(update: Update, context: ContextTypes.DEFAULT_TYPE
 
     question_user_map[sent_message.message_id] = user_chat_id
 
-    await update.message.reply_text("Вопрос отправлен")
+    await update.message.reply_text("Сообщение отправлено")
 
 async def handle_admin_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
@@ -29,7 +29,7 @@ async def handle_admin_reply(update: Update, context: ContextTypes.DEFAULT_TYPE)
         if orig_msg_id in question_user_map:
             target_user_id = question_user_map[orig_msg_id]
             await context.bot.send_message(chat_id=target_user_id, text=update.message.text)
-            await update.message.reply_text("Сообщение отправлен")
+            await update.message.reply_text("Сообщение отправлено")
             del question_user_map[orig_msg_id]
         else:
             await update.message.reply_text("Не найдено соответствующее сообщение пользователя")
